@@ -1,32 +1,40 @@
 
 //import Accueil from './components/accueil.vue';
 
-//import editsalles from "./components/salles/editsalles.vue"
-
-import Viewsalle from "./components/salle/ViewSalle.vue";
+//import Viewsalle from "./components/salles/ViewSalle.vue";
+import Viewsalle from "./components/salle/Viewsalle.vue"
 import AddSalle from "./components/salle/AddSalle.vue";
-
+import Editsalle from "./components/salle/Editsalle.vue";
+import addSpectacle from "./components/salle/addSpectacle.vue";
+import Viewspectacle from "./components/salle/Viewspectacle.vue";
 export const routes = [
-/*{
-name: 'accueil',
-path: '/',
-component: Accueil
-},*/
+    {path: '/api/salles' , component:Viewsalle},
 
 {
-    name:"ViewSalle",
-    path:"/listart",
+    name:"Viewsalle",
+    path:"/salles",
     component:Viewsalle
     },
-    {
+   {
     name:"AddSalle",
-    path:"/addsalle",
+    path:"/listart",
     component:AddSalle
     },
 
-    /*{
-        name:"editsalles",
-        path:"/editsalles/:id",
-        component:editsalles
-        }*/
+    {
+        name:"Editsalle",
+        path:"/editSalle/:id",
+        component:Editsalle
+        },
+        {
+            name:"addSpectacle",
+            path:"/addSpectacle",
+            component:addSpectacle
+            },
+            {
+                name:"Viewspectacle",
+                path:"/Viewspectacle",
+                component:Viewspectacle
+                }
 ];
+

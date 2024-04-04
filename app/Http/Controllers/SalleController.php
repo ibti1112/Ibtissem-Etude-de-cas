@@ -22,13 +22,13 @@ class SalleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'libelle' => 'required|string|max:40',
-            'adresse' => 'required|string|max:50',
+        $salle = new Salle([
+            'libellé' => $request->input('libelle'),
+            'adresse' => $request->input('adresse'),
         ]);
 
-        $salle = Salle::create($request->all());
-        return response()->json(['message' => 'Salle ajoutée avec succès', 'data' => $salle], 201);
+        $salle->save();
+        return response()->json($salle, 201);
     }
 
     /**
@@ -46,7 +46,7 @@ class SalleController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'libelle' => 'required|string|max:40',
+            'libellé' => 'required|string|max:40',
             'adresse' => 'required|string|max:50',
         ]);
 

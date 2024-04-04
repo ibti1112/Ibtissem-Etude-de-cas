@@ -9,8 +9,8 @@ class PieceController extends Controller
 {
     public function index()
     {
-        $piece = piece::all(); 
-        return response()->json(['data' => $piece]);
+        $pieces = piece::all();
+        return response()->json(['data' => $pieces]);
     }
 
     public function store(Request $request)
@@ -19,14 +19,14 @@ class PieceController extends Controller
             'titre' => 'required|string|max:40',
         ]);
 
-        $piece = Piece::create($request->all());
-        return response()->json(['message' => 'Pièce ajoutée avec succès', 'data' => $piece], 201);
+        $pieces = Piece::create($request->all());
+        return response()->json(['message' => 'Pièce ajoutée avec succès', 'data' => $pieces], 201);
     }
 
     public function show(string $id)
     {
-        $piece = Piece::findOrFail($id);
-        return response()->json(['data' => $piece]);
+        $pieces = Piece::findOrFail($id);
+        return response()->json(['data' => $pieces]);
     }
 
     public function update(Request $request, string $id)
@@ -35,15 +35,15 @@ class PieceController extends Controller
             'titre' => 'required|string|max:40',
         ]);
 
-        $piece = Piece::findOrFail($id);
-        $piece->update($request->all());
-        return response()->json(['message' => 'Pièce mise à jour avec succès', 'data' => $piece]);
+        $pieces = Piece::findOrFail($id);
+        $pieces->update($request->all());
+        return response()->json(['message' => 'Pièce mise à jour avec succès', 'data' => $pieces]);
     }
 
     public function destroy(string $id)
     {
-        $piece = Piece::findOrFail($id);
-        $piece->delete();
+        $pieces = Piece::findOrFail($id);
+        $pieces->delete();
         return response()->json(['message' => 'Pièce supprimée avec succès']);
     }
 }

@@ -9,7 +9,7 @@ class Salle extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'libelle','adresse'
+        'libellé','adresse'
         ];
         
         

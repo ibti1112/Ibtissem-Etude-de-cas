@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\SalleController;
-use App\Http\Controllers\pieceController;
+use App\Http\Controllers\PieceController;
 use App\Http\Controllers\SpectacleController;
 
 use Illuminate\Http\Request;
@@ -28,5 +28,5 @@ Route::middleware('api')->group(function () {
     Route::resource('piece', pieceController::class);
     });
     Route::middleware('api')->group(function () {
-        Route::resource('Spectacle', SpectacleController::class);
+        Route::resource('spectacle', SpectacleController::class);
         });
